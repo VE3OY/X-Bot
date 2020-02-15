@@ -6,5 +6,3 @@ Modifications by VE3OY [FEB-2020]<br>
 Based on the original work of:<br>
 &nbsp;&nbsp;&nbsp;Carl Makin and Adam Roach<br>
 <br>
-with lots stolen from other sources.<br>
-
