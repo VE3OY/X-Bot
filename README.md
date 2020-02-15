@@ -4,7 +4,7 @@ Written by Marius Petrescu, YO2LOJ<br>
 Modifications by VE3OY [FEB-2020]<br>
 <br>
 Based on the original work by of:<br>
-&nbsp;&nbsp;&nbsp;Carl Makin<br> and Adam Roach<br>
+&nbsp;&nbsp;&nbsp;Carl Makin and Adam Roach<br>
 <br>
 with lots stolen from other sources.<br>
 
