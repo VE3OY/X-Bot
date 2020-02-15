@@ -1,0 +1,21 @@
+Notes for X-Bot v0.4
+--------------------
+
+1) Edit x-bot.c and change:
+   - #define CALL ... enter your conversd node call sign (with a SSID of "-x" is suggested).
+   - #define CHANNEL ... set this to the channel you want X-Bot to join and sit on.
+   - #define TOPIC ... set what ever TOPIC you want for your channel.
+   - #define SERV_TCP_PORT ... default is port 3600.  Change if you use a different port.
+   - #define SERV_HOST_ADDR ... default is 127.0.0.1, but you can point it to another server.
+
+2) Compile your changes:
+   From the source directory, type:
+   - "make clean"
+   - "make x-bot"
+   - "make install"
+
+The default installation directory is /usr/local/bin.
+You can change the installation directory, but editing "makefile".
+
+
+
