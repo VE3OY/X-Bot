@@ -1,0 +1,1 @@
+*/1 *	* * *	root	if [ -x /opt/conversd/bin/conv.sh ]; then /opt/conversd/bin/conv.sh ; fi
