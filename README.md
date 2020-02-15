@@ -1,4 +1,3 @@
-/* 
    Channel Robot "X-Bot" v0.4 for the Ampr Converse Network
 
    Written by Marius Petrescu, YO2LOJ
@@ -9,5 +8,3 @@
       - Adam Roach
 
    with lots stolen from other sources.
-
-*/
