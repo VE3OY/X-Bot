@@ -8,7 +8,7 @@ if [ "$TST1" = "" ] || [ "$TST2" = ""  ]; then
     killall conversd
     killall x-bot
     sleep 1
-    /opt/conversd/bin/conversd
+    `which conversd`
     sleep 5
-    /opt/conversd/bin/x-bot
+    /usr/local/bin/x-bot
 fi
