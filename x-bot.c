@@ -1,15 +1,11 @@
-/* Channel Robot v0.3 for the Ampr Converse Network!
+/*
 
-   By Marius Petrescu, YO2LOJ
+Channel Robot "X-Bot" daemon v0.4 for the AMPR Converse Network
 
+Written by Marius Petrescu, YO2LOJ with additions
+and modifications by VE3OY [FEB-2020]
 
-   Based on work by
-      - Carl Makin
-      - Adam Roach
-
-   with lots stolen from other sources.
-
-   Additions & modifications by VE3OY - FEB 2020
+Based on the original work of: Carl Makin and Adam Roach
 
 */
 
@@ -32,7 +28,7 @@
 #define VERSION		"0.4"
 #define CALL		"XXXXXX-X"
 #define CHANNEL		"1"
-#define TOPIC		"---===> XXX Convers Channel <===---"
+#define TOPIC		"---===> YourPlace Convers Channel <===---"
 #define SERV_TCP_PORT	3600
 #define SERV_HOST_ADDR	"127.0.0.1"
 
@@ -105,7 +101,7 @@ int main(void)
   int			chc;
   struct sockaddr_in	serv_addr;
 
-  printf(BOTNAME " v" VERSION " by YO2LOJ, VE3OY and others.\n");
+  printf(BOTNAME " v" VERSION " by YO2LOJ and VE3OY.\n");
 
   bzero((char *) &serv_addr, sizeof(serv_addr));
   serv_addr.sin_family      = AF_INET;
@@ -128,8 +124,7 @@ int main(void)
   
   signal(SIGTERM, terminate);
   
-  /* =============================================================================== */
-  /* X-Bot sets LOGS IN */
+  /* X-Bot LOGS IN */
   lsend("/n " CALL " " CHANNEL "\n");
   /* X-Bot sets PERSONAL */
   lsend("/personal " BOTNAME " v" VERSION "\n");
@@ -138,7 +133,7 @@ int main(void)
   /* X-Bot sets TOPIC */
   lsend("/topic " TOPIC "\n");
   /* X-Bot sets AWAY with HELP message*/
-  lsend("/away For HELP, send a private message to X-Bot: / msg { X-Bot call sign }:help\n");
+  lsend("/away For HELP, send a private message to X-Bot: {/}msg { X-Bot call sign }:help\n");
   
 
   pid = fork();
@@ -150,13 +145,14 @@ int main(void)
   else if (pid)
   {
 	
-        printf(BOTNAME " is now a daemon.  PID:%5d\n", pid);
+        printf(BOTNAME " is now running as a daemon.  PID:%5d\n", pid);
 	exit(0);
   }
 
   signal(SIGHUP, settopic);
   
   signal(SIGALRM, checktopic);
+  /* How many seconds until X-Bot checks the channel topic */
   alarm(60);
 
 
@@ -172,8 +168,7 @@ int main(void)
 	if (strlen(cmd)) {
 	  /* adjust our counter to strip off last the character - which should be a NULL "/0" */
 	  cmd--;
-            /* =============================================================================== */
-            /* VE3OY */
+
             /* Now that we have the command, check it for uppercase letters. */
             /* If any uppercase letters are found, convert them to lowercase */
             /* cmd = command string */
@@ -201,6 +196,8 @@ int main(void)
 	    lsend(".\n");
 		lsend("X-Bot is currently holding channel " CHANNEL " and a topic of:\n" TOPIC "\n");
 		lsend(".\n");
+		/* lsend("X-Bot is currently holding a topic of:\n" TOPIC "\n"); */
+	    /* lsend("--------------------------------------------\n"); */
 	  } 
 	  else if (strstr(cmd, "help")) {
 	    lsend("X-Bot " VERSION " >--------------------------------\n");
@@ -214,7 +211,6 @@ int main(void)
 	    lsend("/topic " TOPIC "\n");
 	  }
 	  else if (strstr(cmd, "time")) {
-        /* VE3OY */
         /* If we have a TIME command coming in, get and store the current time */
         time_t rawtime;
         struct tm * timeinfo;
@@ -242,7 +238,7 @@ int main(void)
 	    lsend("Available commands are: help, info, time or topic.\n");
 	    lsend("Please try again.\n");
 	    lsend("--------------------------------------------\n");
-	}
+		}
       }
     } 
   }
