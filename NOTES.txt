@@ -17,5 +17,17 @@ Notes for X-Bot v0.4
 The default installation directory is /usr/local/bin.
 You can change the installation directory, but editing "makefile".
 
+3) CRON:
+   - look in the "install" directory of this repository.
+   - copy "conv.sh" to /usr/local/bin directory
+   - look inside file "x-conv-check" ... copy that single line
+   - edit "/etc/crontab" and insert the single line at the bottom
+   - save your changes and exit your editor
 
+At this point, you should have the X-Bot daemon running, and CRON will run
+"conv.sh" once a minute (which checks the channel topic and resets it if needed).
 
+Enjoy!
+Matt
+VE3OY
+FEB-2020
