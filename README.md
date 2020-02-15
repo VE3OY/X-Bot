@@ -1,12 +1,11 @@
-/*
-Channel Robot "X-Bot" daemon v0.4 for the AMPR Converse Network\n
-
+Channel Robot "X-Bot" daemon v0.4 for the AMPR Converse Network<br>
+<br>
 Written by Marius Petrescu, YO2LOJ<br>
-Modifications by VE3OY [FEB-2020]
+Modifications by VE3OY [FEB-2020]<br>
+<br>
+Based on the original work by of:<br>
+      - Carl Makin<br>
+      - Adam Roach<br>
+<br>
+with lots stolen from other sources.<br>
 
-Based on the original work by of:
-      - Carl Makin
-      - Adam Roach
-
-with lots stolen from other sources.
-*/
