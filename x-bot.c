@@ -230,8 +230,8 @@ int main(void)
       }
       else if (strstr(cmd, "version")) {
         lsend("--------------------< X-Bot v" VERSION " >-------------------------\n");
-        lsend("Written by YO2LOJ, VE3OY and others.>\n");
-        lsend("Source code available at: https://github.com/VE3OY/X-Bot\n");
+        lsend("Written by YO2LOJ, VE3OY and others.\n");
+        lsend("Source code available at https://github.com/VE3OY/X-Bot\n");
         lsend("-----------------------------------------------------------\n");
       }
       else {
