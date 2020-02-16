@@ -165,82 +165,82 @@ int main(void)
     /* adjust our counter to strip off first 4 characters - we don't need those */
 	cmd+=5;
 
-	if (strlen(cmd)) {
-	  /* adjust our counter to strip off last the character - which should be a NULL "/0" */
-	  cmd--;
-      /* Now that we have the command, check it for uppercase letters. */
-      /* If any uppercase letters are found, convert them to lowercase */
-      /* cmd = command string */
+      if (strlen(cmd)) {
+        /* adjust our counter to strip off last the character - which should be a NULL "/0" */
+        cmd--;
+        /* Now that we have the command, check it for uppercase letters. */
+        /* If any uppercase letters are found, convert them to lowercase */
+        /* cmd = command string */
 
-      /* Print out the buffer to screen (before changing UPPER to LOWERcase) */
-      /* puts (cmd); */
+        /* Print out the buffer to screen (before changing UPPER to LOWERcase) */
+        /* puts (cmd); */
 
-      int i;
-      char c;
-      /* change any uppercase letters to lowercase */
-      /* this will fix any commands like: Time or tImE */
-      for(i=0;i<=strlen(cmd);i++)
-      {
-        c = cmd[i];
-        /* putchar (tolower(c)); */
-        cmd[i] = tolower(c);
-      }
-      /* Print out the buffer to screen (after changing UPPER to LOWERcase) */
-      /* puts (cmd); */
+        int i;
+        char c;
+        /* change any uppercase letters to lowercase */
+        /* this will fix any commands like: Time or tImE */
+        for(i=0;i<=strlen(cmd);i++)
+        {
+          c = cmd[i];
+          /* putchar (tolower(c)); */
+          cmd[i] = tolower(c);
+        }
+        /* Print out the buffer to screen (after changing UPPER to LOWERcase) */
+        /* puts (cmd); */
 
-      if (strstr(cmd, "info")) {
-        lsend("--------------------< X-Bot v" VERSION " >-------------------------\n");
-        lsend("X-Bot is currently holding channel " CHANNEL " and a topic of:\n" TOPIC "\n");
-        lsend("-----------------------------------------------------------\n");
-      } 
-      else if (strstr(cmd, "help")) {
-        lsend("--------------------< X-Bot v" VERSION " >-------------------------\n");
-        lsend("Available commands are: help, info, time, version or topic.\n");
-        lsend("type: X:{command} in the main channel, or\n");
-        lsend("type: /msg " CALL " X:{command}\n");
-        lsend("-----------------------------------------------------------\n");
-      }
-      else if (strstr(cmd, "topic")) {
-        lsend("--------------------< X-Bot v" VERSION " >-------------------------\n");
-        lsend("X-Bot will now set the channel topic to:\n" TOPIC "\n");
-        lsend("-----------------------------------------------------------\n");
-        lsend("/topic " TOPIC "\n");
-      }
-      else if (strstr(cmd, "time")) {
-        /* If we have a TIME command coming in, get and store the current time */
-        time_t rawtime;
-        struct tm * timeinfo;
-        struct tm * dateinfo;
-        char TBUFFER [20];
-        char DBUFFER [20];
-        time (&rawtime);
-        timeinfo = localtime (&rawtime);
-        dateinfo = localtime (&rawtime);
-        strftime (TBUFFER,80,"%R %Z",timeinfo);
-        strftime (DBUFFER,80,"%B %d, %G",dateinfo);
-        /* puts (TBUFFER); */
-        /* --- */
-        lsend("--------------------< X-Bot v" VERSION " >-------------------------\n");
-        lsend("Date & time at this node is: ");
-        lsend(DBUFFER);
-        lsend(" @ ");
-        lsend(TBUFFER);
-        lsend("\n");
-        lsend("-----------------------------------------------------------\n");
-      }
-      else if (strstr(cmd, "version")) {
-        lsend("--------------------< X-Bot v" VERSION " >-------------------------\n");
-        lsend("Written by YO2LOJ, VE3OY and others.\n");
-        lsend("Source code available at https://github.com/VE3OY/X-Bot\n");
-        lsend("-----------------------------------------------------------\n");
+        if (strstr(cmd, "info")) {
+          lsend("--------------------< X-Bot v" VERSION " >-------------------------\n");
+          lsend("X-Bot is currently holding channel " CHANNEL " and a topic of:\n" TOPIC "\n");
+          lsend("-----------------------------------------------------------\n");
+        } 
+        else if (strstr(cmd, "help")) {
+          lsend("--------------------< X-Bot v" VERSION " >-------------------------\n");
+          lsend("Available commands are: help, info, time, version or topic.\n");
+          lsend("type: X:{command} in the main channel, or\n");
+          lsend("type: /msg " CALL " X:{command}\n");
+          lsend("-----------------------------------------------------------\n");
+        }
+        else if (strstr(cmd, "topic")) {
+          lsend("--------------------< X-Bot v" VERSION " >-------------------------\n");
+          lsend("X-Bot will now set the channel topic to:\n" TOPIC "\n");
+          lsend("-----------------------------------------------------------\n");
+          lsend("/topic " TOPIC "\n");
+        }
+        else if (strstr(cmd, "time")) {
+          /* If we have a TIME command coming in, get and store the current time */
+          time_t rawtime;
+          struct tm * timeinfo;
+          struct tm * dateinfo;
+          char TBUFFER [20];
+          char DBUFFER [20];
+          time (&rawtime);
+          timeinfo = localtime (&rawtime);
+          dateinfo = localtime (&rawtime);
+          strftime (TBUFFER,80,"%R %Z",timeinfo);
+          strftime (DBUFFER,80,"%B %d, %G",dateinfo);
+          /* puts (TBUFFER); */
+          /* --- */
+          lsend("--------------------< X-Bot v" VERSION " >-------------------------\n");
+          lsend("Date & time at this node is: ");
+          lsend(DBUFFER);
+          lsend(" @ ");
+          lsend(TBUFFER);
+          lsend("\n");
+          lsend("-----------------------------------------------------------\n");
+        }
+        else if (strstr(cmd, "version")) {
+          lsend("--------------------< X-Bot v" VERSION " >-------------------------\n");
+          lsend("Written by YO2LOJ, VE3OY and others.\n");
+          lsend("Source code available at https://github.com/VE3OY/X-Bot\n");
+          lsend("-----------------------------------------------------------\n");
+        }
+        else {
+          lsend("--------------------< X-Bot v" VERSION " >-------------------------\n");
+          lsend("Available commands are: help, info, time or topic.\n");
+          lsend("-----------------------------------------------------------\n");
+        }
       }
       else {
-        lsend("--------------------< X-Bot v" VERSION " >-------------------------\n");
-        lsend("Available commands are: help, info, time or topic.\n");
-        lsend("-----------------------------------------------------------\n");
-      }
-	}
-	else {
         lsend("--------------------< X-Bot v" VERSION " >-------------------------\n");
         lsend ("I did not understand your last command.\n");
         lsend("Available commands are: help, info, time, version or topic.\n");
