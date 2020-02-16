@@ -6,7 +6,7 @@
 #
 
 #
-# What to use for compiler/linker. Someone might prefer egcs.
+# What to use for compiler/linker.
 CC = gcc
 
 #COPTS = -DWANT_LOG
@@ -27,13 +27,6 @@ COPTIM = -O2 -s
 # away.
 CWARNS = -Wall -Wstrict-prototypes
 
-# comment the following two lines out if you don't have / want libreadline
-# you do not have it on MACOSX
-# if readline.h is in /usr/include/, use -DHAVE_READLINE_H,
-# if readline.h is in /usr/include/readline, use -DHAVE_READLINE_READLINE_H
-#READLINE_INCLUDES = -DHAVE_LIBREADLINE -DHAVE_READLINE_READLINE_H
-#READLINE_LIBS = -lreadline -lncurses
-
 install:
 	@echo "Any running X-Bot process will now be killed"
 	killall x-bot
@@ -48,9 +41,6 @@ install:
 clean:
 	@echo "Removing any previous build files"
 	rm -rf *.o *~ */*~
-
-#.c.o:
-#	$(CC) $(CFLAGS) -c $<
 
 :
 x-bot: x-bot.o
