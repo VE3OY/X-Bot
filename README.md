@@ -5,3 +5,5 @@ and modifications by VE3OY [FEB-2020]<br>
 <br>
 Based on the original work of:&nbsp;Carl Makin and Adam Roach<br>
 <br>
+GNU GENERAL PUBLIC LICENSE v3<br>
+<br><br><br>
