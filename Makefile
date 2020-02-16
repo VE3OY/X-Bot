@@ -35,7 +35,7 @@ CWARNS = -Wall -Wstrict-prototypes
 #READLINE_LIBS = -lreadline -lncurses
 
 install:
-	@echo "X-Bot process will now bw killed"
+	@echo "Any running X-Bot process will now be killed"
 	killall x-bot
 	@echo "Deleting x-bot executable from /usr/local/bin"
 	rm -f /usr/local/bin/x-bot
