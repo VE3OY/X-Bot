@@ -162,8 +162,8 @@ int main(void)
     /* puts (buffer); */
 
     if(cmd = strstr(buffer, ": X:")) {
-    /* adjust our counter to strip off first 4 characters - we don't need those */
-	cmd+=5;
+      /* adjust our counter to strip off first 4 characters - we don't need those */
+      cmd+=5;
 
       if (strlen(cmd)) {
         /* adjust our counter to strip off last the character - which should be a NULL "/0" */
@@ -182,7 +182,6 @@ int main(void)
         for(i=0;i<=strlen(cmd);i++)
         {
           c = cmd[i];
-          /* putchar (tolower(c)); */
           cmd[i] = tolower(c);
         }
         /* Print out the buffer to screen (after changing UPPER to LOWERcase) */
