@@ -23,6 +23,12 @@ Authored by VE3OY Matt (FEB-2020)
 - Formatting:
   Changed the X-Bot response format to make it a more readable
 
+- Querying X-Bot:
+  Now you can query X-Bot without sending it a private message.
+  Type "X:{command}" in the channel and X-Bot will respond.
+  The standard way of querying X-Bot is to send a private message.
+  Example:  /msg {X-Bot call sign (with -x)} X:{command}
+
 Version 0.3
 -----------
 Authored by Marius Petrescu, YO2LOJ
