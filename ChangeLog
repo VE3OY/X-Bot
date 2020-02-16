@@ -1,0 +1,34 @@
+*** CHANGELOG FOR
+Channel Robot "X-Bot" daemon for the AMPR Converse Network
+
+Version 0.4
+-----------
+Authored by VE3OY Matt (FEB-2020)
+- Added notations in source file describing various functions.
+
+- Cleaned up source code eliminating TAB characters.
+
+- Command added: TIME
+  Returns the date and time at the node.
+  Good if you are querying a distant node.
+
+- Command added: VERSION
+
+- Function added:
+  Change any incoming command from uppercase to lowercase.
+  The program's IF-THEN-ELSE structure depends on the command
+  being in lowercase.  This will help to eliminate typos like:
+  Time -or- TiMe -or- tImE
+
+- Formatting:
+  Changed the X-Bot response format to make it a more readable
+
+Version 0.3
+-----------
+Authored by Marius Petrescu, YO2LOJ
+
+
+Version 0.1
+-----------
+Authored by Carl Makin and Adam Roach
+Call signs unknown
