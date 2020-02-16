@@ -1,6 +1,6 @@
 #
 # Makefile for conversd "X-Bot" channel robot
-#   written by YO2LOJ, VE3OY [FEB2020]
+#   written by YO2LOJ, VE3OY [FEB-2020]
 #   based on original work of
 #   Carl Makin and Adam Roach
 #
