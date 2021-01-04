@@ -1,10 +1,5 @@
 #!/bin/sh
 
-TST1=`ps -A | grep conversd`
-TST2=`ps -A | grep XBot`
-
-
-
 p1=$(pidof -s conversd)
 p2=$(pidof -s XBot)
 
