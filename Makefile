@@ -1,12 +1,12 @@
 #
 # Makefile for conversd "X-Bot" channel robot
-#   written by YO2LOJ, VE3OY [FEB-2020]
+#   written by YO2LOJ, VE3OY [FEB2020]
 #   based on original work of
 #   Carl Makin and Adam Roach
 #
 
 #
-# What to use for compiler/linker.
+# What to use for compiler/linker. Someone might prefer egcs.
 CC = gcc
 
 #COPTS = -DWANT_LOG
@@ -27,20 +27,30 @@ COPTIM = -O2 -s
 # away.
 CWARNS = -Wall -Wstrict-prototypes
 
+# comment the following two lines out if you don't have / want libreadline
+# you do not have it on MACOSX
+# if readline.h is in /usr/include/, use -DHAVE_READLINE_H,
+# if readline.h is in /usr/include/readline, use -DHAVE_READLINE_READLINE_H
+#READLINE_INCLUDES = -DHAVE_LIBREADLINE -DHAVE_READLINE_READLINE_H
+#READLINE_LIBS = -lreadline -lncurses
+
 install:
-	@echo "Any running X-Bot process will now be killed"
-	killall x-bot
-	@echo "Deleting x-bot executable from /usr/local/bin"
-	rm -f /usr/local/bin/x-bot
+	@echo "X-Bot process will now bw killed"
+	killall XBot
+	@echo "Deleting XBot executable from /usr/local/bin"
+	rm -rf /usr/local/bin/XBbot
 	@echo "Copying new x-bot executable to /usr/local/bin"
-	cp -f x-bot /usr/local/bin/x-bot
+	cp -f x-bot /usr/local/bin/XBot
 	@echo "Starting new X-Bot process"
-	/usr/local/bin/x-bot
+	/usr/local/bin/XBot
 	@echo "Done."
 
 clean:
 	@echo "Removing any previous build files"
 	rm -rf *.o *~ */*~
+
+#.c.o:
+#	$(CC) $(CFLAGS) -c $<
 
 :
 x-bot: x-bot.o
