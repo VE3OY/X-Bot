@@ -15,17 +15,26 @@ Notes for X-Bot v0.4
    - "make install"
 
 The default installation directory is /usr/local/bin.
-You can change the installation directory, but editing "makefile".
+You can change the installation directory, but editing the "Makefile" file.
 
 3) CRON:
    - look in the "install" directory of this repository.
    - copy "conv.sh" to /usr/local/bin directory
-   - look inside file "x-conv-check" ... copy that single line
+   - type in the command "chmod +x /usr/local/bin/conv.sh" then press [ENTER]
+   - look inside the file "x-conv-check". Copy that single line.
    - edit "/etc/crontab" and insert the single line at the bottom
    - save your changes and exit your editor
 
-At this point, you should have the X-Bot daemon running, and CRON will run
-"conv.sh" once a minute (which checks the channel topic and resets it if needed).
+At this point, you are ready to start your CONVERSD server.
+- cd into directory /usr/local/bin
+- issue the command "conv.sh" then press [ENTER]
+
+You should now have the CONVERSD and X-Bot daemons running.
+You can check to see if they are running by using commands:
+"pidof conversd" ... or ... "pidof XBot"
+
+CRON will run "conv.sh" once every minute, and checks that CONVERSD and XBot are running.
+If either daemon is NOT running, then it will start them.
 
 Enjoy!
 Matt
